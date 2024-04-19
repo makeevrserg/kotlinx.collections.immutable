@@ -16,13 +16,14 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
 import kotlinx.collections.immutable.serialization.util.JsonConfigurationFactory
 import kotlinx.collections.immutable.serialization.util.JsonExt.encodeAndDecode
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 class ImmutableCollectionSerializerTest {
 
     @Serializable
     private class ImmutableListHolder<T>(
-        @Serializable(with = ImmutableListSerializer::class)
+        @Contextual
         val immutableList: ImmutableList<T>
     )
 
@@ -36,7 +37,7 @@ class ImmutableCollectionSerializerTest {
 
     @Serializable
     private class PersistentListHolder<T>(
-        @Serializable(with = PersistentListSerializer::class)
+        @Contextual
         val persistentList: PersistentList<T>
     )
 
@@ -50,7 +51,7 @@ class ImmutableCollectionSerializerTest {
 
     @Serializable
     private class ImmutableSetHolder<T>(
-        @Serializable(with = ImmutableSetSerializer::class)
+        @Contextual
         val immutableSet: ImmutableSet<T>
     )
 
@@ -64,7 +65,7 @@ class ImmutableCollectionSerializerTest {
 
     @Serializable
     private class PersistentSetHolder<T>(
-        @Serializable(with = PersistentSetSerializer::class)
+        @Contextual
         val persistentSet: PersistentSet<T>
     )
 
@@ -78,7 +79,7 @@ class ImmutableCollectionSerializerTest {
 
     @Serializable
     private class PersistentHashSetHolder<T>(
-        @Serializable(with = PersistentHashSetSerializer::class)
+        @Contextual
         val persistentHashSet: PersistentSet<T>
     )
 

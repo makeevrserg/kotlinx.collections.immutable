@@ -12,13 +12,14 @@ import kotlinx.collections.immutable.PersistentMap
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.serialization.util.JsonConfigurationFactory
 import kotlinx.collections.immutable.serialization.util.JsonExt.encodeAndDecode
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 class ImmutableMapSerializerTest {
 
     @Serializable
     private class ImmutableMapHolder<K, V>(
-        @Serializable(with = ImmutableMapSerializer::class)
+        @Contextual
         val immutableMap: ImmutableMap<K, V>
     )
 
@@ -32,7 +33,7 @@ class ImmutableMapSerializerTest {
 
     @Serializable
     private class PersistentMapHolder<K, V>(
-        @Serializable(with = PersistentMapSerializer::class)
+        @Contextual
         val persistentMap: PersistentMap<K, V>
     )
 
@@ -46,7 +47,7 @@ class ImmutableMapSerializerTest {
 
     @Serializable
     private class PersistentHashMapHolder<K, V>(
-        @Serializable(with = PersistentHashMapSerializer::class)
+        @Contextual
         val hashMap: PersistentMap<K, V>
     )
 
